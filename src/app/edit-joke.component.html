@@ -1,0 +1,40 @@
+<div *ngIf="joke"><h1>{{joke.name}}</h1>
+<h2>Joke Attributes</h2>
+  <table>
+      <tr><th>Attribute</th><th>Value</th></tr>
+      <tr>
+          <td>Name</td>
+          <td><input [(ngModel)]="joke.name" placeholder="name" /></td>
+        </tr>
+      <tr>
+        <td>Origin</td>
+        <td><input [(ngModel)]="joke.origin" placeholder="origin" /></td>
+      </tr>
+      <tr>
+        <td>Style</td>
+        <td><input [(ngModel)]="joke.style" placeholder="style" /></td>
+        </tr>
+      <tr>
+        <td>Dirtiness</td>
+        <td><input [(ngModel)]="joke.dirtiness" placeholder="dirtiness" /></td>
+      </tr>
+      <tr>
+        <td>Added By</td>
+        <td><input [(ngModel)]="joke.addedBy" placeholder="Added By" /></td>
+      </tr>
+  </table>
+  <p></p>
+  <h2>Joke Lines</h2>
+<div *ngFor="let line of joke.lines; let i=index;">
+    <input [(ngModel)]="line.speaker" placeholder="speaker" />
+    <input [(ngModel)]="line.isPunchline" placeholder="false" />
+    <input size="225" [(ngModel)]="line.line" placeholder="line" /> 
+    <button (click)="removeLine(i)">Remove</button>
+    <span *ngIf="i>0"><button (click)="moveLine(i,i-1)">down</button></span>
+    <span *ngIf="i<joke.lines.length-1"><button (click)="moveLine(i,i+1)">up</button></span>
+  </div>
+  <button (click)="addLine()">Add Line</button>
+
+  <p></p>
+<button (click)="save()">Save</button>
+</div>

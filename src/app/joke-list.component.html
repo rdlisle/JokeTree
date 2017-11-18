@@ -1,0 +1,17 @@
+<div *ngIf="jokes"><h1>Joke List</h1>
+
+<table>
+  <tr><th>Name</th><th>Style</th><th>How Dirty</th><th>Added</th>
+<tr *ngFor="let joke of jokes">
+  <td><span (click)="gotoDetail(joke)">{{joke.name}}</span></td>
+  <td><span (click)="gotoDetail(joke)">{{joke.style}}</span></td> 
+  <td><span (click)="gotoDetail(joke)">{{joke.dirtiness}}</span></td>
+  <td><span (click)="gotoDetail(joke)">{{joke.addedDate | date}}</span></td>
+  <td>    <button class="delete" (click)="delete(joke); $event.stopPropagation()">x</button></td>
+  </tr>
+</table>
+
+<p></p>
+<button (click)="add();$event.stopPropagation()">New Joke</button>
+
+</div>

@@ -1,7 +1,16 @@
-import { Component } from '@angular/core';
+import { Component  } from '@angular/core';
+import { Joke } from './joke'
+import { JokeLine } from './joke-line'
 
 @Component({
   selector: 'my-app',
-  template: `<h1>Hello {{name}}</h1>`,
+  template: `<a routerLink="/list">List of Jokes</a>
+  <router-outlet></router-outlet>`,
 })
-export class AppComponent  { name = 'Angular'; }
+export class AppComponent { 
+name = 'Angular'; 
+constructor()
+{ }
+
+}
+

@@ -1,0 +1,18 @@
+<div *ngIf="joke"><h1>{{joke.name}}</h1>
+
+<div *ngFor="let line of joke.lines">
+  <span class="badge" [ngStyle]="{'font-weight':line.isPunchline ? 'bold' : 'normal' }">
+    <label *ngIf="line.speaker">{{line.speaker}} : </label>{{line.line}}</span>
+  </div>
+
+<p></p>
+<table>
+    <tr><th>Attribute</th><th>Value</th></tr>
+    <tr><td>Origin</td><td>{{joke.origin}}</td></tr>
+    <tr><td>Style</td><td>{{joke.style}}</td></tr>
+    <tr><td>Dirtiness</td><td>{{joke.dirtiness}}</td></tr>
+    <tr><td>Added By</td><td>{{joke.addedBy}}</td></tr>
+</table>
+
+<span (click)="gotoEdit(joke)">Edit</span>
+</div>
